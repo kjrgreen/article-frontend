@@ -40,11 +40,12 @@ function fetchLatestArticles(cachedArticles) {
         }
     }, () => {handleFailedFetch(cachedArticles)});
 }
+setTimeout( () => fetchLatestArticles(JSON.parse(localStorage.getItem('articles'))), 1500); //Add a delay so we can see the loading animation on initial load
 
-fetchLatestArticles(JSON.parse(localStorage.getItem('articles')));
 
 ReactDOM.render(
   <React.StrictMode>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
     <Provider store={store}>
       <App />
     </Provider>
